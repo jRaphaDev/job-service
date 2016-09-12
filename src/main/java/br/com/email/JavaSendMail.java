@@ -16,22 +16,20 @@ import org.quartz.JobExecutionException;
 
 public class JavaSendMail implements Job {
 	
-	private String username;
-	private String password;
-	private List<String> to;
-	private String subject;
-	private String msg;
+	private static String username;
+	private static String password;
+	private static List<String> to;
+	private static String subject;
+	private static String msg;
 	
-	public JavaSendMail() {
-		
-	}
+	public JavaSendMail() {}
 	
 	public JavaSendMail(String username, String password, List<String> to, String subject, String msg ) {
-		this.username = username;
-		this.password = password;
-		this.to = to;
-		this.subject = subject;
-		this.msg = msg;
+		JavaSendMail.username = username;
+		JavaSendMail.password = password;
+		JavaSendMail.to = to;
+		JavaSendMail.subject = subject;
+		JavaSendMail.msg = msg;
 	}
 	
 	private static Properties setProps() throws Exception {
@@ -53,6 +51,7 @@ public class JavaSendMail implements Job {
 		
 		try {
 			
+			//set all properties
 			Properties props = setProps();
 
 			Authentication authentication = new Authentication();
@@ -64,13 +63,12 @@ public class JavaSendMail implements Job {
 	        message.setFrom(new InternetAddress(username));
 
 	        for (int a = 0; a < to.size(); a++) {
-	        	 System.out.println(to.get(a).toString());
 	        	 message.addRecipient(Message.RecipientType.TO, new InternetAddress(to.get(a).toString()));
 			}
 
 	        message.setSubject(subject);
 	        message.setText(msg);
-	
+
 	        Transport.send(message);
 	        System.out.println("Mail Sent");
 	        
@@ -78,10 +76,10 @@ public class JavaSendMail implements Job {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public void execute(JobExecutionContext context) throws JobExecutionException {
-		// TODO Auto-generated method stub
-		
+		System.out.println(username + " >>>>>>>>>>>>>>>>> ");
+		execute();
 	}
 
 }

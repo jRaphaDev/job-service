@@ -1,10 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>br.com.email</groupId>
-  <artifactId>send-email</artifactId>
-  <version>0.1</version>
+  <groupId>br.com.jobs.service</groupId>
+  <artifactId>jobs-service</artifactId>
+  <version>0.0.1</version>
   <dependencies>
   	
+  	<!-- job email -->
   	<dependency>
   		<groupId>javax.mail</groupId>
         <artifactId>mail</artifactId>

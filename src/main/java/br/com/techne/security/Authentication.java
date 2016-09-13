@@ -1,4 +1,4 @@
-package br.com.email;
+package br.com.techne.security;
 
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
